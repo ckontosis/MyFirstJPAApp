@@ -5,7 +5,6 @@
  */
 package entities;
 
-
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="customers")
-public class Customer implements Serializable{
+    public class Customer implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -88,7 +87,4 @@ public class Customer implements Serializable{
         sb.append('}');
         return sb.toString();
     }
-    
-    
-    
 }
