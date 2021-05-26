@@ -5,7 +5,6 @@
  */
 package controllers;
 
-import entities.Customer;
 import entities.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -83,6 +82,37 @@ public class ProductsController extends HttpServlet {
                 out.println(product.toString());
                 out.println("<br>");
             }
+            // SELECT single
+            Product myProduct = em.find(Product.class, 7);
+            out.println("Before" + myProduct);
+            
+            // UPDATE
+//            em.getTransaction().begin();
+//            myProduct.setName("KKK");
+//            myProduct.setDescription("KKK");
+//            em.getTransaction().commit();
+//            
+//            out.println("After" + myProduct);
+
+
+            // INSERT
+//            em.getTransaction().begin();
+//            Product myProduct2 = new Product();
+//            em.persist(myProduct2);
+//            myProduct.setName("Tablet");
+//            myProduct.setDescription("Extreme Tablet");
+//            myProduct.setPrice(1999);
+//            myProduct.setImage("XXX");
+//            em.getTransaction().commit();
+
+            // DELETE
+            Product myProduct3 = em.find(Product.class, 15);
+            if (myProduct3 != null) {
+                em.getTransaction().begin();
+                em.remove(myProduct3);
+                em.getTransaction().commit();
+            }
+            
             out.println("</body>");
             out.println("</html>");
         }
